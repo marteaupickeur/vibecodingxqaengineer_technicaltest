@@ -4,11 +4,11 @@
 > - Compte Snapchat **dédié**, jamais le perso.
 > - Demander explicitement à l'agent de rester lent / d'espacer les actions, et de
 >   privilégier peu d'itérations de test.
-> - Noter dans `qa-log.md` toute friction dès le setup (compte reduck.ai, extension,
+> - Noter dans `logs.md` toute friction dès le setup (compte reduck.ai, extension,
 >   `claude mcp add reduck --transport http --scope user https://mcp.reduck.ai`).
 > - Un script se construit en plusieurs passes normalement (brouillon → testé →
 >   promu). Ne pas s'attendre à ce que ça marche du premier coup — c'est justement ce
->   qu'il faut documenter dans le QA log si ça coince.
+>   qu'il faut documenter dans les logs si ça coince.
 
 ---
 
@@ -21,7 +21,7 @@
 > - Aller sur **`https://profile.snapchat.com/`** (le profil public / dashboard
 >   créateur) : c'est là que se trouvent les stats détaillées de mes Stories/
 >   Spotlight actifs — `web.snapchat.com` n'expose que l'heure de publication, pas
->   les vues/captures/interactions (voir le QA log du 23/09).
+>   les vues/captures/interactions (voir les logs du 23/09).
 > - Le dashboard a deux onglets à couvrir séparément, avec des stats différentes par
 >   type de contenu — ne pas les fusionner dans un seul tableau :
 >   - **Stories publiques** : pour chaque Snap actif, extraire la date/heure de
@@ -57,7 +57,7 @@
 - Le chargement de la liste de tuiles (Stories comme Spotlight) est asynchrone et
   peut prendre près de 10 secondes — vérifier que le script n'utilise pas un timeout
   par défaut trop court, sous peine de conclure à tort à "aucun contenu actif" (voir
-  QA log du 23/09).
+  les logs du 23/09).
 
 ---
 
@@ -69,7 +69,7 @@
 > Snapchat. Le script doit :
 > - Aller sur `https://web.snapchat.com/` (liste des conversations et snaps reçus).
 >   Aucun onglet Snapchat Web ne doit être déjà ouvert : le site n'autorise qu'un
->   onglet à la fois (voir le QA log du 23/09).
+>   onglet à la fois (voir les logs du 23/09).
 > - Repérer les conversations marquées comme non lues (snap non ouvert, message non
 >   lu). La page n'a ni `data-testid` ni classes stables : lire l'état non lu et le
 >   type de contenu à partir de la structure (forme et couleur de l'icône), pas du

@@ -4,11 +4,11 @@
 > - Compte Snapchat **dédié**, jamais le perso.
 > - Demander explicitement à l'agent de rester lent / d'espacer les actions, et de
 >   privilégier peu d'itérations de test.
-> - Noter dans `qa-log.md` toute friction dès le setup (compte reduck.ai, extension,
+> - Noter dans `logs.md` toute friction dès le setup (compte reduck.ai, extension,
 >   `claude mcp add reduck --transport http --scope user https://mcp.reduck.ai`).
 > - Un script se construit en plusieurs passes normalement (brouillon → testé →
 >   promu). Ne pas s'attendre à ce que ça marche du premier coup — c'est justement ce
->   qu'il faut documenter dans le QA log si ça coince.
+>   qu'il faut documenter dans les logs si ça coince.
 
 ---
 

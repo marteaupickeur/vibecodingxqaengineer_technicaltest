@@ -37,8 +37,7 @@ Le périmètre est volontairement **en lecture seule** : les scripts observent l
 
 ## Limites à connaître
 
-- **Cas non observés** : aucune Story ou Spotlight active, aucun élément non lu dans un état « envoyé/ouvert », un panneau de demandes vide, une demande sans avatar, un très grand nombre de conversations (liste virtualisée).
-- **Le rang d'un élément n'est pas une clé stable** : il change quand du contenu est ajouté ou retiré.
+- **Cas non observés** : 
 - **Le type d'un snap non lu est déduit de la forme et de la couleur de l'icône**, pas du texte. Ça peut casser si Snapchat redessine l'interface.
 - **Le compte n'est pas à l'abri d'une restriction** : automatiser Snapchat va à l'encontre de l'usage normal du service. D'où le compte dédié, un rythme lent et une utilisation normale du compte entre deux lancements.
 - **Snapchat Web n'autorise qu'un onglet à la fois** et peut allumer la webcam au chargement.

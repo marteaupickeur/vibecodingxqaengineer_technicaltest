@@ -35,7 +35,14 @@
 > - Retourner un objet JSON avec deux tableaux séparés :
 >   `{ stories: [{ label, posted_at_display, viewers, views, replies, screenshots,
 >   interactions, moderation_status }], spotlights: [{ label, views, viewers, likes,
->   shares }] }`.
+>   shares }], warnings: [string] }`. `warnings` reste vide quand les deux onglets se
+>   sont chargés ; sinon il contient une entrée par onglet qui n'a pas fini de charger,
+>   et cette section est alors renvoyée vide alors que le compte peut avoir du contenu.
+>   Un tableau vide accompagné d'un avertissement ne veut pas dire « aucun contenu ».
+> - Le dashboard est lent et variable (la liste de tuiles a mis 9 s un jour, 21 à 34 s
+>   le lendemain) : prévoir des attentes longues et un timeout de navigation relevé, et
+>   ne jamais conclure à « aucun contenu » sur la seule absence de tuiles (un écran
+>   « vide » s'affiche brièvement pendant le chargement).
 > - Chaque élément porte un `label` lisible, pas un identifiant technique : la date
 >   imprimée sur sa tuile + sa position dans l'ordre de la page, par exemple
 >   `23/09/2026 #1`. Ne pas utiliser de fragment d'URL de miniature ni de hash comme
@@ -63,6 +70,12 @@
   peut prendre près de 10 secondes — vérifier que le script n'utilise pas un timeout
   par défaut trop court, sous peine de conclure à tort à "aucun contenu actif" (voir
   les logs du 23/09).
+- Le script tient-il un jour où le site est lent ? Vérifier que la navigation n'attend
+  pas l'événement `load` avec le délai par défaut de 10 s (il est arrivé à 7-14 s), et
+  tester à froid à plusieurs moments de la journée.
+- Les classes CSS hachées changent d'un jour à l'autre : celle qui identifiait les
+  lignes de statistiques Spotlight a été renommée en une nuit et toutes les valeurs
+  sont devenues `null`. Préférer la structure (titre + valeur voisine) aux classes.
 - Le `label` est-il lisible et distinct pour chaque élément, y compris quand plusieurs
   éléments ont la même date (le rang `#n` les départage) ? Vérifié avec 2 Stories et 2
   Spotlights le même jour. Le rang suit l'ordre de la page (observé du plus ancien au
