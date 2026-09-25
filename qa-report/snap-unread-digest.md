@@ -2,10 +2,13 @@
 
 Script : `@mde/web.snapchat.com/snap-unread-digest` (lecture seule, sans argument)
 
+Criticité : même échelle que `bugs-a-corriger.md` (Critique / Majeure / Mineure). « Aucune » si le cas passe, « Non évaluée » si le test n'est pas concluant.
+
 ## Cas communs
 
 ### C-01 — Compte connecté, cas nominal
 - Catégorie : SCRIPT
+- Criticité : Aucune
 - Script concerné : snap-unread-digest
 - Action tentée : Lancer le script avec 1 message texte non lu.
 - Résultat attendu : Le message remonte et reste non lu.
@@ -17,6 +20,7 @@ Script : `@mde/web.snapchat.com/snap-unread-digest` (lecture seule, sans argumen
 
 ### C-02 — Session Snapchat déconnectée
 - Catégorie : SCRIPT / PRODUIT
+- Criticité : Mineure
 - Script concerné : snap-unread-digest
 - Action tentée : Me déconnecter de Snapchat, puis lancer le script.
 - Résultat attendu : Une erreur claire, pas de liste vide.
@@ -28,6 +32,7 @@ Script : `@mde/web.snapchat.com/snap-unread-digest` (lecture seule, sans argumen
 
 ### C-03 — Extension Reduck désactivée
 - Catégorie : PRODUIT
+- Criticité : Majeure
 - Script concerné : snap-unread-digest
 - Action tentée : Désactiver l'extension, puis lancer le script.
 - Résultat attendu : Une erreur claire, tout de suite.
@@ -39,6 +44,7 @@ Script : `@mde/web.snapchat.com/snap-unread-digest` (lecture seule, sans argumen
 
 ### C-04 — Mode sombre
 - Catégorie : SCRIPT
+- Criticité : Non évaluée
 - Script concerné : snap-unread-digest
 - Action tentée : Passer Snapchat en sombre, avec un snap photo et un snap vidéo non lus.
 - Résultat attendu : Photo et vidéo bien reconnues (le script les distingue par la couleur).
@@ -47,6 +53,7 @@ Script : `@mde/web.snapchat.com/snap-unread-digest` (lecture seule, sans argumen
 
 ### C-05 — Fermeture de l'onglet dès le lancement
 - Catégorie : PRODUIT
+- Criticité : Mineure
 - Script concerné : snap-unread-digest
 - Action tentée : Lancer le script et fermer tout de suite l'onglet ouvert par Reduck.
 - Résultat attendu : Le run échoue vite, sans rester bloqué.
@@ -58,6 +65,7 @@ Script : `@mde/web.snapchat.com/snap-unread-digest` (lecture seule, sans argumen
 
 ### C-06 — Interface Snapchat en anglais
 - Catégorie : SCRIPT
+- Criticité : Aucune
 - Script concerné : snap-unread-digest
 - Action tentée : Passer l'interface en anglais, puis lancer le script.
 - Résultat attendu : Seul `status_text` change de langue.
@@ -71,6 +79,7 @@ Script : `@mde/web.snapchat.com/snap-unread-digest` (lecture seule, sans argumen
 
 ### U-01 — Aucun message non lu
 - Catégorie : SCRIPT
+- Criticité : Aucune
 - Script concerné : snap-unread-digest
 - Action tentée : Tout lire sur le téléphone, puis lancer le script.
 - Résultat attendu : `unread: []`, sans erreur.
@@ -82,6 +91,7 @@ Script : `@mde/web.snapchat.com/snap-unread-digest` (lecture seule, sans argumen
 
 ### U-02 — 1 snap photo non lu
 - Catégorie : SCRIPT
+- Criticité : Aucune
 - Script concerné : snap-unread-digest
 - Action tentée : Recevoir un snap photo sans l'ouvrir, puis lancer le script.
 - Résultat attendu : `snap_photo`.
@@ -93,6 +103,7 @@ Script : `@mde/web.snapchat.com/snap-unread-digest` (lecture seule, sans argumen
 
 ### U-03 — 1 snap vidéo non lu
 - Catégorie : SCRIPT
+- Criticité : Aucune
 - Script concerné : snap-unread-digest
 - Action tentée : Recevoir un snap vidéo sans l'ouvrir, puis lancer le script.
 - Résultat attendu : `snap_video`.
@@ -104,6 +115,7 @@ Script : `@mde/web.snapchat.com/snap-unread-digest` (lecture seule, sans argumen
 
 ### U-04 — 1 chat non lu
 - Catégorie : SCRIPT
+- Criticité : Aucune
 - Script concerné : snap-unread-digest
 - Action tentée : Recevoir un message texte, puis lancer le script.
 - Résultat attendu : `chat`.
@@ -115,6 +127,7 @@ Script : `@mde/web.snapchat.com/snap-unread-digest` (lecture seule, sans argumen
 
 ### U-05 — Snap + chat dans la même conversation
 - Catégorie : SCRIPT
+- Criticité : Aucune
 - Script concerné : snap-unread-digest
 - Action tentée : Recevoir un snap puis un message dans la même conversation.
 - Résultat attendu : `mixed`.
@@ -126,6 +139,7 @@ Script : `@mde/web.snapchat.com/snap-unread-digest` (lecture seule, sans argumen
 
 ### U-06 — Note vocale, sticker, lien, pièce jointe
 - Catégorie : SCRIPT
+- Criticité : Mineure
 - Script concerné : snap-unread-digest
 - Action tentée : Recevoir ces contenus, puis lancer le script.
 - Résultat attendu : Pas de plantage, un type cohérent.

@@ -2,10 +2,13 @@
 
 Script : `@mde/profile.snapchat.com/snap-story-analytics` (lecture seule, sans argument)
 
+Criticité : même échelle que `bugs-a-corriger.md` (Critique / Majeure / Mineure). « Aucune » si le cas passe, « Non évaluée » si le test n'est pas concluant.
+
 ## Cas communs
 
 ### C-01 — Compte connecté, cas nominal
 - Catégorie : SITE / SCRIPT
+- Criticité : Mineure
 - Script concerné : snap-story-analytics
 - Action tentée : Lancer le script avec 1 Story et 2 Spotlights en ligne.
 - Résultat attendu : Le script réussit et renvoie les stats.
@@ -20,6 +23,7 @@ Script : `@mde/profile.snapchat.com/snap-story-analytics` (lecture seule, sans a
 
 ### C-02 — Session Snapchat déconnectée
 - Catégorie : SCRIPT
+- Criticité : Mineure
 - Script concerné : snap-story-analytics
 - Action tentée : Me déconnecter de Snapchat, puis lancer le script.
 - Résultat attendu : Une erreur claire, pas de liste vide.
@@ -31,6 +35,7 @@ Script : `@mde/profile.snapchat.com/snap-story-analytics` (lecture seule, sans a
 
 ### C-03 — Extension Reduck désactivée
 - Catégorie : PRODUIT
+- Criticité : Majeure
 - Script concerné : snap-story-analytics
 - Action tentée : Désactiver l'extension dans `chrome://extensions`, puis lancer le script.
 - Résultat attendu : Une erreur claire, tout de suite.
@@ -42,6 +47,7 @@ Script : `@mde/profile.snapchat.com/snap-story-analytics` (lecture seule, sans a
 
 ### C-04 — Mode sombre
 - Catégorie : SCRIPT
+- Criticité : Non évaluée
 - Script concerné : snap-story-analytics
 - Action tentée : Passer Snapchat en thème sombre, puis lancer le script.
 - Résultat attendu : Même résultat qu'en thème clair.
@@ -50,6 +56,7 @@ Script : `@mde/profile.snapchat.com/snap-story-analytics` (lecture seule, sans a
 
 ### C-05 — Fermeture de l'onglet dès le lancement
 - Catégorie : PRODUIT
+- Criticité : Aucune
 - Script concerné : snap-story-analytics
 - Action tentée : Lancer le script et fermer tout de suite l'onglet ouvert par Reduck.
 - Résultat attendu : Le run échoue vite, sans rester bloqué.
@@ -61,6 +68,7 @@ Script : `@mde/profile.snapchat.com/snap-story-analytics` (lecture seule, sans a
 
 ### C-06 — Interface Snapchat en anglais
 - Catégorie : SCRIPT
+- Criticité : Critique
 - Script concerné : snap-story-analytics
 - Action tentée : Passer l'interface en anglais, puis lancer le script.
 - Résultat attendu : Même résultat qu'en français.
@@ -74,6 +82,7 @@ Script : `@mde/profile.snapchat.com/snap-story-analytics` (lecture seule, sans a
 
 ### S-01 — Aucune Story
 - Catégorie : SCRIPT
+- Criticité : Majeure
 - Script concerné : snap-story-analytics
 - Action tentée : Supprimer toutes les Stories, puis lancer le script.
 - Résultat attendu : `stories: []`, sans erreur.
@@ -85,6 +94,7 @@ Script : `@mde/profile.snapchat.com/snap-story-analytics` (lecture seule, sans a
 
 ### S-02 — 1 Story, 1 snap
 - Catégorie : SCRIPT
+- Criticité : Aucune
 - Script concerné : snap-story-analytics
 - Action tentée : Lancer le script avec une seule Story.
 - Résultat attendu : 1 entrée complète.
@@ -96,6 +106,7 @@ Script : `@mde/profile.snapchat.com/snap-story-analytics` (lecture seule, sans a
 
 ### S-03 — 1 Story avec plusieurs snaps
 - Catégorie : SCRIPT
+- Criticité : Aucune
 - Script concerné : snap-story-analytics
 - Action tentée : Lancer le script avec 2 snaps dans la même Story.
 - Résultat attendu : Une entrée par snap.
@@ -107,6 +118,7 @@ Script : `@mde/profile.snapchat.com/snap-story-analytics` (lecture seule, sans a
 
 ### S-04 — Plusieurs Stories
 - Catégorie : SCRIPT
+- Criticité : Aucune
 - Script concerné : snap-story-analytics
 - Action tentée : Lancer le script avec 2 Stories.
 - Résultat attendu : Les 2 sont là, numérotées dans l'ordre.
@@ -118,6 +130,7 @@ Script : `@mde/profile.snapchat.com/snap-story-analytics` (lecture seule, sans a
 
 ### S-05 — Story publiée pendant que le script tourne
 - Catégorie : SCRIPT
+- Criticité : Mineure
 - Script concerné : snap-story-analytics
 - Action tentée : Publier une Story depuis le téléphone pendant le run.
 - Résultat attendu : Pas de plantage, pas de doublon.
@@ -132,6 +145,7 @@ Script : `@mde/profile.snapchat.com/snap-story-analytics` (lecture seule, sans a
 
 ### SP-01 — Aucun Spotlight
 - Catégorie : SCRIPT
+- Criticité : Majeure
 - Script concerné : snap-story-analytics
 - Action tentée : Supprimer tous les Spotlights, puis lancer le script.
 - Résultat attendu : `spotlights: []`, sans erreur.
@@ -143,6 +157,7 @@ Script : `@mde/profile.snapchat.com/snap-story-analytics` (lecture seule, sans a
 
 ### SP-02 — 1 puis plusieurs Spotlights
 - Catégorie : SCRIPT
+- Criticité : Aucune
 - Script concerné : snap-story-analytics
 - Action tentée : Lancer le script avec 1 Spotlight, puis avec 2.
 - Résultat attendu : Une entrée par Spotlight.
@@ -154,6 +169,7 @@ Script : `@mde/profile.snapchat.com/snap-story-analytics` (lecture seule, sans a
 
 ### SP-03 — Fermeture de la modale Spotlight
 - Catégorie : SCRIPT
+- Criticité : Mineure
 - Script concerné : snap-story-analytics
 - Action tentée : Fermer à la main la modale Spotlight pendant que le script la lit.
 - Résultat attendu : Le script lit les stats ou échoue proprement.
@@ -162,6 +178,7 @@ Script : `@mde/profile.snapchat.com/snap-story-analytics` (lecture seule, sans a
 
 ### SP-04 — Spotlight dont la vidéo n'est pas encore chargée
 - Catégorie : SCRIPT
+- Criticité : Aucune
 - Script concerné : snap-story-analytics
 - Action tentée : Lire un Spotlight dont la vidéo charge encore.
 - Résultat attendu : Les stats sont lues quand même.

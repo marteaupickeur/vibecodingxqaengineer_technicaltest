@@ -2,10 +2,13 @@
 
 Script : `@mde/web.snapchat.com/snap-friend-requests-triage` (lecture seule, sans argument)
 
+Criticité : même échelle que `bugs-a-corriger.md` (Critique / Majeure / Mineure). « Aucune » si le cas passe, « Non évaluée » si le test n'est pas concluant.
+
 ## Cas communs
 
 ### C-01 — Compte connecté, cas nominal
 - Catégorie : SCRIPT
+- Criticité : Aucune
 - Script concerné : snap-friend-requests-triage
 - Action tentée : Lancer le script sans demande d'ami en attente.
 - Résultat attendu : `requests: []`, rien n'est accepté ni refusé.
@@ -17,6 +20,7 @@ Script : `@mde/web.snapchat.com/snap-friend-requests-triage` (lecture seule, san
 
 ### C-02 — Session Snapchat déconnectée
 - Catégorie : SCRIPT
+- Criticité : Critique
 - Script concerné : snap-friend-requests-triage
 - Action tentée : Me déconnecter de Snapchat, puis lancer le script.
 - Résultat attendu : Une erreur claire, pas de liste vide.
@@ -28,6 +32,7 @@ Script : `@mde/web.snapchat.com/snap-friend-requests-triage` (lecture seule, san
 
 ### C-03 — Extension Reduck désactivée
 - Catégorie : PRODUIT
+- Criticité : Majeure
 - Script concerné : snap-friend-requests-triage
 - Action tentée : Désactiver l'extension, puis lancer le script.
 - Résultat attendu : Une erreur claire, tout de suite.
@@ -39,6 +44,7 @@ Script : `@mde/web.snapchat.com/snap-friend-requests-triage` (lecture seule, san
 
 ### C-04 — Mode sombre
 - Catégorie : SCRIPT
+- Criticité : Non évaluée
 - Script concerné : snap-friend-requests-triage
 - Action tentée : Passer Snapchat en sombre, puis lancer le script.
 - Résultat attendu : Même résultat qu'en thème clair.
@@ -47,6 +53,7 @@ Script : `@mde/web.snapchat.com/snap-friend-requests-triage` (lecture seule, san
 
 ### C-05 — Fermeture de l'onglet dès le lancement
 - Catégorie : PRODUIT
+- Criticité : Aucune
 - Script concerné : snap-friend-requests-triage
 - Action tentée : Lancer le script et fermer tout de suite l'onglet ouvert par Reduck.
 - Résultat attendu : Le run échoue vite, sans rester bloqué.
@@ -58,6 +65,7 @@ Script : `@mde/web.snapchat.com/snap-friend-requests-triage` (lecture seule, san
 
 ### C-06 — Interface Snapchat en anglais
 - Catégorie : SCRIPT
+- Criticité : Aucune
 - Script concerné : snap-friend-requests-triage
 - Action tentée : Passer l'interface en anglais, puis lancer le script avec une demande en attente.
 - Résultat attendu : Les libellés passent en anglais, le reste ne bouge pas.
@@ -71,6 +79,7 @@ Script : `@mde/web.snapchat.com/snap-friend-requests-triage` (lecture seule, san
 
 ### F-01 — Aucune demande en attente
 - Catégorie : SCRIPT
+- Criticité : Aucune
 - Script concerné : snap-friend-requests-triage
 - Action tentée : Lancer le script sans demande en attente.
 - Résultat attendu : `requests: []` au bout de 8 s environ.
@@ -82,6 +91,7 @@ Script : `@mde/web.snapchat.com/snap-friend-requests-triage` (lecture seule, san
 
 ### F-02 — Demandes en attente
 - Catégorie : SCRIPT
+- Criticité : Aucune
 - Script concerné : snap-friend-requests-triage
 - Action tentée : Lancer le script avec 2 demandes en attente.
 - Résultat attendu : Une entrée par demande.
@@ -93,6 +103,7 @@ Script : `@mde/web.snapchat.com/snap-friend-requests-triage` (lecture seule, san
 
 ### F-03 — Beaucoup de demandes (30 ou plus)
 - Catégorie : SCRIPT
+- Criticité : Non évaluée
 - Script concerné : snap-friend-requests-triage
 - Action tentée : Lancer le script avec une longue liste de demandes.
 - Résultat attendu : Toutes les demandes remontent.
@@ -101,6 +112,7 @@ Script : `@mde/web.snapchat.com/snap-friend-requests-triage` (lecture seule, san
 
 ### F-04 — Fermeture du panneau des demandes
 - Catégorie : SCRIPT
+- Criticité : Critique
 - Script concerné : snap-friend-requests-triage
 - Action tentée : Fermer à la main le panneau des demandes juste après que le script l'a ouvert, avec 1 demande en attente.
 - Résultat attendu : Une erreur, ou la bonne demande. Pas de liste vide.
